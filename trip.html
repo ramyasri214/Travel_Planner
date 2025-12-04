@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Planner</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #f4f8fb;
+      color: #333;
+    }
+
+    /* Include Navbar Styles (same as above) */
+    nav {
+      background-color: #0077b6;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      color: white;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Trip Planner Section */
+    .trip-container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .trip-container h1 {
+      text-align: center;
+      color: #0077b6;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    button {
+      background-color: #0077b6;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005f8a;
+    }
+
+    .trip-summary {
+      margin-top: 30px;
+      padding: 20px;
+      background: #e0f7fa;
+      border-radius: 10px;
+      display: none;
+    }
+
+    .trip-summary h3 {
+      color: #0077b6;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      background: #333;
+      color: #fff;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">🌍 Travel Planner</div>
+    <ul>
+      <li><a href="navbar.html">Home</a></li>
+      <li><a href="book.html">Booking</a></li>
+      <li><a href="trip.html">Trip Plan</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#">Sign In</a></li>
+    </ul>
+  </nav>
+
+  <!-- Trip Planner Form -->
+  <div class="trip-container">
+    <h1>Plan Your Trip 🧳</h1>
+    <form id="tripForm">
+      <label for="destination">Destination:</label>
+      <input type="text" id="destination" placeholder="Enter destination" required>
+
+      <label for="days">Number of Days:</label>
+      <input type="number" id="days" placeholder="Enter number of days" required>
+
+      <label for="travelers">Number of Travelers:</label>
+      <input type="number" id="travelers" placeholder="Enter number of people" required>
+
+      <label for="budget">Budget (in ₹):</label>
+      <input type="number" id="budget" placeholder="Enter budget" required>
+
+      <label for="preferences">Travel Preferences:</label>
+      <select id="preferences" required>
+        <option value="">--Select--</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Relaxation">Relaxation</option>
+        <option value="Culture">Culture & Heritage</option>
+        <option value="Nature">Nature & Wildlife</option>
+      </select>
+
+      <label for="notes">Additional Notes:</label>
+      <textarea id="notes" rows="3" placeholder="Enter any special requests"></textarea>
+
+      <button type="submit">Generate Trip Plan</button>
+    </form>
+
+    <!-- Trip Summary -->
+    <div class="trip-summary" id="tripSummary">
+      <h3>Your Trip Summary:</h3>
+      <p id="summaryText"></p>
+    </div>
+  </div>
+
+  <footer>© 2025 Travel Planner | Designed with ❤️ for explorers</footer>
+
+  <script>
+    const tripForm = document.getElementById("tripForm");
+    const tripSummary = document.getElementById("tripSummary");
+    const summaryText = document.getElementById("summaryText");
+
+    tripForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const dest = document.getElementById("destination").value;
+      const days = document.getElementById("days").value;
+      const people = document.getElementById("travelers").value;
+      const budget = document.getElementById("budget").value;
+      const pref = document.getElementById("preferences").value;
+
+      summaryText.innerHTML = `
+        <strong>Destination:</strong> ${dest}<br>
+        <strong>Trip Duration:</strong> ${days} days<br>
+        <strong>Travelers:</strong> ${people} people<br>
+        <strong>Budget:</strong> ₹${budget}<br>
+        <strong>Preference:</strong> ${pref}
+      `;
+
+      tripSummary.style.display = "block";
+      tripForm.reset();
+    });
+  </script>
+
+</body>
+</html>

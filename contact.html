@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Travel Planner</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #f4f8fb;
+      color: #333;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #0077b6;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      color: white;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact Section */
+    .contact-container {
+      max-width: 900px;
+      margin: 60px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .contact-container h1 {
+      text-align: center;
+      color: #0077b6;
+      margin-bottom: 20px;
+    }
+
+    .contact-container p {
+      text-align: center;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #0077b6;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005f8a;
+    }
+
+    .success {
+      margin-top: 20px;
+      background: #e0f7fa;
+      padding: 10px;
+      border-radius: 8px;
+      color: #0077b6;
+      display: none;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Contact Info Section */
+    .info {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .info div {
+      background: #e3f2fd;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .info h3 {
+      color: #0077b6;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      background: #333;
+      color: #fff;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">🌍 Travel Planner</div>
+    <ul>
+      <li><a href="navbar.html">Home</a></li>
+      <li><a href="book.html">Booking</a></li>
+      <li><a href="trip.html">Trip Plan</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#">Sign In</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contact Section -->
+  <div class="contact-container">
+    <h1>Contact Us 📞</h1>
+    <p>We’d love to hear from you! Please fill out the form below or reach us directly.</p>
+
+    <form id="contactForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" rows="5" placeholder="Write your message..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="success" id="successMsg">✅ Thank you for reaching out! We'll get back to you soon.</div>
+
+    <div class="info">
+      <div>
+        <h3>📍 Address</h3>
+        <p>Travel Planner HQ, Hyderabad, India</p>
+      </div>
+      <div>
+        <h3>📧 Email</h3>
+        <p>support@travelplanner.com</p>
+      </div>
+      <div>
+        <h3>📞 Phone</h3>
+        <p>+91 98765 43210</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2025 Travel Planner | Made with ❤️ for Travelers</footer>
+
+  <script>
+    const contactForm = document.getElementById("contactForm");
+    const successMsg = document.getElementById("successMsg");
+
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      successMsg.style.display = "block";
+      contactForm.reset();
+
+      setTimeout(() => {
+        successMsg.style.display = "none";
+      }, 4000);
+    });
+  </script>
+
+</body>
+</html>
