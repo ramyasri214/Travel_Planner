@@ -151,17 +151,7 @@ if (loginForm) {
 }
 
 
-// SESSION AUTO LOGOUT (ADDED)
 
-function checkSession() {
-    const expiry = localStorage.getItem("sessionExpires");
-    if (expiry && Date.now() > expiry) {
-        localStorage.setItem("isLoggedIn", "false");
-        alert("⏳ Session expired. Please login again.");
-        window.location.href = "login.html";
-    }
-}
-checkSession();
 
 
 // PROTECT NAVBAR PAGE
